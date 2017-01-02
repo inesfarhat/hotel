@@ -1,0 +1,89 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="title"></ui:define>
+	<ui:define name="content">
+		<div class="span9">
+			<div class="content">
+				<div class="module">
+					
+
+					<p:panel >
+						<h:form>
+							<h:panelGrid columns="2">
+								<h:outputText value="Chambre" />
+								<h:outputText value="#{dispoM.chambre.nomChambre}"  />
+								<h:outputText value="Disponibilité" />
+								<p:inputText value="#{dispoM.chambre.dispoChambre}" />
+								<h:outputText value="" />
+							
+								
+								<p:commandButton class="btn" value="Enregistrer"
+									action="#{dispoM.enregistrerDispo(dispoM.chambre)}"  oncomplete="PF('dlg1').show();">
+									
+								</p:commandButton>
+								
+								
+								
+								<p:dialog id="dlg" header="Alert !" widgetVar="dlg1"
+										minHeight="40">
+										<h:form>
+											<h:outputText value="Modification enregistrée !" />
+											<br/>
+											<div align="center" draggable="false" >
+											<p:commandButton value="Ok"
+										action="#{dispoM.revenir()}" onclick="dlg.hide()" class="btn" align="center"/>
+												</div>
+												
+										</h:form>
+									</p:dialog>
+
+								<p:confirmDialog global="true" showEffect="fade"
+									hideEffect="fade">
+
+									<p:commandButton value="Ok" type="button"
+										styleClass="ui-confirmdialog-yes" icon="ui-icon-check"
+										 />
+										 	
+
+								</p:confirmDialog>
+
+							</h:panelGrid>
+						</h:form>
+					</p:panel>
+
+
+
+
+
+
+
+					<div class="module-body">
+
+
+
+
+
+						<!--/.row-fluid-->
+						<br />
+
+						<!--/.row-fluid-->
+
+						<!--/.row-fluid-->
+						<br /> <br />
+					
+					</div>
+				</div>
+			</div>
+			<!--/.content-->
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>

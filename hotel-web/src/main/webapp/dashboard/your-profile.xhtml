@@ -1,0 +1,71 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui"
+	   template="template.xhtml">
+	   
+	<ui:define name="title">student home</ui:define>   
+	<ui:define name="content">
+	
+
+				<div class="span9">
+					<div class="content">
+
+						<div class="module">
+							<div class="module-head">
+								<h3>Votre profil</h3>
+							</div>
+							<div class="module-body">
+
+								<br />
+
+								<h:form>
+									<p:panelGrid columns="2" styleClass="carousel"
+										style="width:50%" cellpadding="30" cellspacing="20">
+										<f:facet name="header">
+											<p:graphicImage class="brand" library="images"
+												value="user.png" />
+
+
+										</f:facet>
+										<h:outputText value="&#160;" />
+										<h:outputText value="&#160;" />
+										<h:outputText value="Prénom:" />
+										<h:outputText value="#{manageUM.administrateur.prenom}" />
+										<h:outputText value="&#160;" />
+										<h:outputText value="&#160;" />
+										<h:outputText value="Nom:" />
+										<h:outputText value="#{manageUM.administrateur.nomUtilisateur}" />
+										<h:outputText value="&#160;" />
+										<h:outputText value="&#160;" />
+										
+										<h:outputText value="Sex:" />
+										<h:outputText value="#{manageUM.administrateur.sex}" />
+										
+										<h:outputText value="&#160;" />
+										<h:outputText value="&#160;" />
+										<h:outputText value="Téléphone:" />
+										<h:outputText value="#{manageUM.administrateur.tel}" />
+										<h:outputText value="&#160;" />
+										<h:outputText value="&#160;" />
+										
+
+									</p:panelGrid>
+								</h:form>
+
+							</div>
+						</div>
+
+
+
+					</div>
+					<!--/.content-->
+				</div>
+				<!--/.span9-->
+										
+</ui:define>   
+	   
+</ui:composition>	

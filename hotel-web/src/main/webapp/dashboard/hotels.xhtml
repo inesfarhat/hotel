@@ -1,0 +1,88 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="title"></ui:define>
+	<ui:define name="content">
+		<div class="span9">
+			<div class="content">
+				<div class="module">
+					<div class="module-head">
+						<h3>Tous les hôtels</h3>
+					</div>
+					
+					<div class="module-body">
+					<h:form>
+						<ui:repeat value="#{hotelM.hotels}" var="ho">
+
+							<div class="media user">
+								<a class="media-avatar pull-left" href="#"> <img
+									src="images/hotel.png"></img>
+								</a>
+								<div class="media-body">
+									<h3 class="media-title">#{ho.nomHotel}</h3>
+									<p>
+										<small class="muted">#{ho.lieuxHotel}</small>
+									</p>
+									
+										<div class="media-option btn-group shaded-icon">
+
+											<p:commandLink action="#{hotelM.modifHotel(ho)}">
+												<h:graphicImage library="images" value="images/edit.png" />
+
+											</p:commandLink>
+									<p:commandLink action="#{hotelM.suppHotel(ho)}">
+												<p:confirm header="Confirmation" message="Etes-vous sur de vouloir supprimer cet hôtel?"
+													icon="ui-icon-alert" />
+												<h:graphicImage library="images" value="images/delete.png" />
+											</p:commandLink>
+											<p:confirmDialog global="true" showEffect="fade"
+												hideEffect="fade">
+												<p:commandButton value="Oui" type="button"
+													styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+												<p:commandButton value="Non" type="button"
+													styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+											</p:confirmDialog>
+
+
+
+										</div>
+								
+								</div>
+							</div>
+
+						</ui:repeat>
+						
+						
+						
+						
+						</h:form>
+						
+						
+						
+						
+						
+
+
+						<!--/.row-fluid-->
+						<br />
+
+						<!--/.row-fluid-->
+
+						<!--/.row-fluid-->
+						<br /> <br />
+						
+					</div>
+				</div>
+			</div>
+			<!--/.content-->
+		</div>
+	
+
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,96 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="title">student home</ui:define>
+	<ui:define name="content">
+		<div class="span9">
+			<div class="content">
+
+				<div class="module">
+
+					<div class="module-head">
+
+						<h3>Liste des chambres</h3>
+					</div>
+
+
+					<h:form>
+
+						<p:dataTable var="ch" value="#{detailHotelM.hotel.chambres}"
+							class="datatable-1 table table-bordered table-striped display">
+
+							<p:column headerText="Nom chambre">
+								<h:outputText value="#{ch.nomChambre}" />
+							</p:column>
+							<p:column headerText="Action">
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+								<h:outputText value="&#160;" />
+
+								<p:commandButton class="btn" value="Modifier la disponibilité"
+									action="#{detailHotelM.modifDispo(ch)}">
+
+
+								</p:commandButton>
+							</p:column>
+
+
+
+
+						</p:dataTable>
+
+
+
+					</h:form>
+
+
+
+
+
+
+					<div class="module-body">
+
+
+
+
+
+						<!--/.row-fluid-->
+						<br />
+
+						<!--/.row-fluid-->
+
+						<!--/.row-fluid-->
+						<br /> <br />
+
+					</div>
+				</div>
+			</div>
+			<!--/.content-->
+		</div>
+
+
+	</ui:define>
+
+</ui:composition>

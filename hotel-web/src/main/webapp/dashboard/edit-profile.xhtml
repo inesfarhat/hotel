@@ -1,0 +1,145 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="title">student home</ui:define>
+	<ui:define name="content">
+
+		<div class="span9">
+			<div class="content">
+
+				<div class="module">
+					<div class="module-head">
+						<h3>Edit Profile</h3>
+					</div>
+					<div class="module-body">
+
+
+
+
+						<br />
+
+						<h:form class="form-horizontal row-fluid">
+							<div class="control-group">
+								<label class="control-label" for="basicinput">Prénom</label>
+								<div class="controls">
+
+									<p:inputText class="span8"
+										value="#{manageUM.administrateur.prenom}" required="true"
+										requiredMessage="Le champ Prénom est obligatoire."
+										validatorMessage="Invalid Prénom format">
+										<f:validateRegex pattern="[a-zA-Z]*" />
+									</p:inputText>
+
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="basicinput">Nom</label>
+								<div class="controls">
+									<p:inputText class="span8"
+										value="#{manageUM.administrateur.nomUtilisateur}"
+										required="true"
+										requiredMessage="Le champ Prénom est obligatoire."
+										validatorMessage="Invalid Prénom format">
+										<f:validateRegex pattern="[a-zA-Z]*" />
+									</p:inputText>
+								</div>
+							</div>
+
+
+
+							<div class="control-group">
+								<label class="control-label" for="basicinput">Mot de
+									passe</label>
+								<div class="controls">
+
+									<p:inputText type="password" class="span8"
+										value="#{manageUM.administrateur.password}" size="20"
+										required="true" 
+										requiredMessage="Le champ Password est obligatoire.">
+										
+									</p:inputText>
+									<span class="help-inline">Minimum 5 Characters</span>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="basicinput">Retapez le
+									mot de passe</label>
+								<div class="controls">
+
+									<p:inputText class="span8" type="password"
+										value="#{manageUM.rePassword}"></p:inputText>
+									<span class="help-inline">Minimum 5 Characters</span>
+								</div>
+							</div>
+
+
+
+
+							<div class="control-group">
+								<label class="control-label">Sexe</label>
+								<div class="controls">
+									<p:selectOneRadio id="gender" value="#{manageUM.gender}"
+										required="true" requiredMessage="Gender Required">
+										<f:selectItems value="#{manageUM.genderList}" />
+									</p:selectOneRadio>
+
+								</div>
+							</div>
+
+
+
+							<div class="control-group">
+								<div class="controls">
+
+									<p:commandButton class="btn" value="Enregistrer"
+										action="#{manageUM.enregistrerProfil(manageUM.administrateur)}"
+										oncomplete="PF('dlg1').show();">
+
+									</p:commandButton>
+									<div></div>
+
+									<p:dialog id="dlg" header="Basic Dialog" widgetVar="dlg1"
+										minHeight="40">
+										<h:form>
+											<h:outputText value="Comfirmation !" />
+											<br />
+											<div align="center" draggable="false">
+												<p:messages id="msg" autoUpdate="true" closable="true" />
+												<p:commandButton value="Ok" action="#{manageUM.revenir()}"
+													onclick="dlg.hide()" class="btn" align="center" />
+											</div>
+										</h:form>
+									</p:dialog>
+
+									<p:confirmDialog global="true" showEffect="fade"
+										hideEffect="fade">
+
+
+										<p:commandButton value="Ok" type="button"
+											styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+
+
+									</p:confirmDialog>
+								</div>
+							</div>
+						</h:form>
+					</div>
+				</div>
+
+
+
+			</div>
+			<!--/.content-->
+		</div>
+		<!--/.span9-->
+
+	</ui:define>
+
+</ui:composition>

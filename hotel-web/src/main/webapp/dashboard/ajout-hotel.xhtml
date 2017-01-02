@@ -1,0 +1,137 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui" template="template.xhtml">
+
+	<ui:define name="title">student home</ui:define>
+	<ui:define name="content">
+		<div class="span9">
+			<div class="content">
+
+				<div class="module">
+					<div class="module-head">
+						<h3>Nouveau Hôtel</h3>
+					</div>
+					<div class="module-body">
+						<br />
+
+						<h:form class="form-horizontal row-fluid">
+
+
+							<div class="control-group">
+								<label class="control-label" for="basicinput">Nom</label>
+								<div class="controls">
+									<p:inputText class="span8" value="#{hotelM.hotel.nomHotel}"></p:inputText>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="basicinput">Lieux</label>
+								<div class="controls">
+									<p:inputText class="span8" value="#{hotelM.hotel.lieuxHotel}"></p:inputText>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="basicinput">Lien</label>
+								<div class="controls">
+									<p:inputText class="span8" value="#{hotelM.hotel.lienHotel}"></p:inputText>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="basicinput">Tax</label>
+								<div class="controls">
+									<p:inputText class="span8" value="#{hotelM.hotel.taxHotel}"></p:inputText>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label class="control-label" for="basicinput">Description</label>
+								<div class="controls">
+
+
+									<p:inputTextarea value="#{hotelM.hotel.descriptionHotel}"
+										class="span8" rows="5" cols="30" maxlength="10"
+										counterTemplate="{0} characters remaining." autoResize="false" />
+								</div>
+							</div>
+
+							<div class="control-group">
+								<div class="controls">
+
+
+									<p:dialog id="dlg" header="Basic Dialog" widgetVar="dlg1"
+										minHeight="40">
+										<h:form>
+											<h:outputText value="Hôle a été ajouté avec succès !" />
+											<br />
+											<div align="center" draggable="false">
+												<p:commandButton value="Ok" onclick="dlg.hide()" class="btn" />
+											</div>
+										</h:form>
+									</p:dialog>
+
+
+								</div>
+							</div>
+						</h:form>
+					</div>
+
+					<p:separator></p:separator>
+					<h:form class="form-horizontal row-fluid">
+
+
+						<label class="control-label" for="basicinput">Nom</label>
+						<div class="controls">
+							<p:inputText class="span8" value="#{hotelM.chambre.nomChambre}"></p:inputText>
+						</div>
+
+
+						<div class="control-group">
+							
+								<div align="center">
+								<br/>
+								<h:commandButton class="btn" value="Ajouter une chambre"
+									action="#{hotelM.ajoutchambre()}">
+								</h:commandButton>
+								</div>
+
+						
+						</div>
+						<div class="module-body table">
+							<p:dataTable var="ch" value="#{hotelM.chambres}"
+								class="datatable-1 table table-bordered table-striped display">
+
+								<p:column headerText="Nom">
+									<h:outputText value="#{ch.nomChambre}" />
+								</p:column>
+
+
+
+							</p:dataTable>
+							<br />
+							<div align="center">
+								<p:commandButton class="btn" value="Créer un hôtel"
+									action="#{hotelM.ajoutNouvHotel()}"
+									oncomplete="PF('dlg1').show();">
+
+								</p:commandButton>
+							</div>
+
+						</div>
+
+					</h:form>
+
+
+				</div>
+
+
+
+			</div>
+			<!--/.content-->
+		</div>
+
+	</ui:define>
+
+</ui:composition>
